@@ -1,7 +1,7 @@
 {
   "name": "react-editable-content",
   "version": "0.0.1",
-  "description": "Powerful content-editable component for React",
+  "description": "Powerful contentEditable component for React",
   "main": "dist/index.js",
   "module": "./src/index.js",
   "jsnext:main": "./src/index.js",
@@ -10,7 +10,10 @@
     "src"
   ],
   "scripts": {
-    "build": "rollup -c; shx cp dist/index.js dist/index.js.map docs/lib"
+    "build": "rollup -c; shx cp dist/index.js dist/index.js.map docs/lib",
+    "watch": "rollup -c -w -o docs/lib/index.js",
+    "serve": "http-server -c-1 docs",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\""
   },
   "keywords": [
     "react",
@@ -35,8 +38,10 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-es2017": "^6.24.1",
+    "concurrently": "^3.5.1",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.8.2",
+    "http-server": "^0.11.1",
     "rollup": "^0.59.3",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-node-resolve": "^3.3.0",

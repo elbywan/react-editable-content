@@ -35,12 +35,13 @@ export class EditableData extends PureComponent {
             return onChange([{ text: this._ref.innerText }])
         }
 
-        const newDataMap = nodes.reduce((acc, node) => {
+        const newDataMap = nodes.reduce((acc, node, index) => {
             let text = node.innerText
             const parentNode = node.parentElement
             const nodeIndex = node.dataset.nodeIndex
 
             if(
+                index > 0 &&
                 parentNode.nodeType === 1 &&
                 parentNode !== this._ref &&
                 getComputedStyle(parentNode).display === 'block' &&
