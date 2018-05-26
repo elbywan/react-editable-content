@@ -48,7 +48,7 @@ export class EditableContent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, { caretPosition, caretPositionEnd }) {
-        if(!this._elementRef || !caretPosition)
+        if(!this._elementRef || typeof caretPosition !== 'number')
             return
 
         const { node, offset } = getNodeAtOffset(this._elementRef, caretPosition)
