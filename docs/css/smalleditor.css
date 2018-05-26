@@ -1,0 +1,52 @@
+.small-editor-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.small-editor-buttons-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.small-editor-buttons-bar > button {
+    background: none;
+    color: inherit;
+    border: none;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+    flex: 1;
+    min-width: 150px;
+    transition: 0.25s all;
+}
+
+.small-editor-buttons-bar > button:last-of-type {
+    border-right: none;
+}
+
+.small-editor-buttons-bar > button:hover {
+    color: crimson;
+}
+
+.small-editor-buttons-bar > button.active {
+    color: blue;
+}
+
+.small-editor {
+    border: 1px solid black;
+    padding: 20px;
+    position: relative
+}
+
+.small-editor-placeholder {
+    position: absolute;
+    color: lightgray;
+    pointer-events: none;
+}

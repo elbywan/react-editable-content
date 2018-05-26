@@ -1,0 +1,16 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "modules": false
+            }
+        ]
+    ],
+    "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "transform-react-jsx",
+        "external-helpers"
+    ]
+}

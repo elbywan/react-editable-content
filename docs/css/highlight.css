@@ -1,0 +1,55 @@
+.highlight-expander {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: col-resize;
+    width: 3px;
+    height: calc(1em + 5px);
+    background: #eaeaea;
+    background-clip: content-box;
+    color: transparent;
+    opacity: 0;
+    z-index: 10;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s;
+}
+
+.highlight-expander::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: -10px;
+    left: -4px;
+    width: 11px;
+    height: 11px;
+    z-index: 1;
+    background: #eaeaea;
+    transition: all 0.25s;
+}
+
+.highlight-expander-active,
+.highlight-expander-active::before,
+.highlight-expander:hover,
+.highlight-expander:hover::before {
+    opacity: 1;
+    background: blue;
+    background-clip: content-box;
+}
+
+/* .highlight-expander.highlight-expander-start {
+    margin-left: -4px;
+    margin-right: -3px;
+} */
+.highlight-expander.highlight-expander-start::before {
+    border-top-left-radius: 5px;
+}
+/* .highlight-expander.highlight-expander-end {
+    margin-right: -4px;
+    margin-left: -3px;
+} */
+.highlight-expander.highlight-expander-end::before {
+    border-top-right-radius: 5px;
+}
+
+.highlight-container:hover .highlight-expander {
+    opacity: 1
+}

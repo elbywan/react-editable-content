@@ -1,0 +1,46 @@
+{
+  "name": "react-editable-content",
+  "version": "0.0.1",
+  "description": "Powerful content-editable component for React",
+  "main": "dist/index.js",
+  "module": "./src/index.js",
+  "jsnext:main": "./src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c; shx cp dist/index.js dist/index.js.map docs/lib"
+  },
+  "keywords": [
+    "react",
+    "content-editable",
+    "content",
+    "editable"
+  ],
+  "author": "Julien Elbaz",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-es2017": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.8.2",
+    "rollup": "^0.59.3",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^4.0.0",
+    "shx": "^0.2.2"
+  }
+}
