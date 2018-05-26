@@ -15,8 +15,9 @@ export class EditableData extends PureComponent {
 
     componentDidMount() {
         const { helperRef } = this.props
+        this.helperRef = new DataHelper(this)
 
-        helperRef(new DataHelper(this))
+        helperRef(this.helperRef)
     }
 
     getDataNode(targetNode) {
@@ -80,7 +81,7 @@ export class EditableData extends PureComponent {
                     delete val.nodeIndex
                     return val
                 })
-                .filter(item => item.text !== '\n')
+                .filter(item => item.text !== '\n' && item.text !== '')
 
         onChange(newData)
     }

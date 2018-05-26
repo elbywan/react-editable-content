@@ -49,14 +49,14 @@ export class EditableContent extends Component {
 
     componentDidUpdate(prevProps, prevState, { caretPosition, caretPositionEnd }) {
         if(!this._elementRef || typeof caretPosition !== 'number')
-            return
+            return collapseRangeAt(this._elementRef, 0)
 
         const { node, offset } = getNodeAtOffset(this._elementRef, caretPosition)
 
         // console.log(node, offset)
 
         if(!node)
-            return
+            return collapseRangeAt(this._elementRef, 0)
 
         if(!caretPositionEnd)
             return collapseRangeAt(node, offset)

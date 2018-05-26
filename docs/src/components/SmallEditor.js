@@ -71,7 +71,7 @@ class SmallEditor extends React.PureComponent {
         this._topElement.removeEventListener('keydown', this.keyListener)
     }
 
-    updateEditorData(newData, skipStackUpdate = false) {
+    updateEditorData(newData) {
         const { undoStack, undoStackPointer } = this.state
 
         const stackValues = {
@@ -79,13 +79,11 @@ class SmallEditor extends React.PureComponent {
             undoStackPointer: 0
         }
 
-        if(!skipStackUpdate) {
-            if(undoStackPointer !== null) {
-                stackValues.undoStack = undoStack.slice(0, undoStackPointer + 1)
-                stackValues.undoStackPointer = undoStackPointer + 1
-            }
-            stackValues.undoStack.push(newData)
+        if(undoStackPointer !== null) {
+            stackValues.undoStack = undoStack.slice(0, undoStackPointer + 1)
+            stackValues.undoStackPointer = undoStackPointer + 1
         }
+        stackValues.undoStack.push(newData)
 
         this.setState({
             editorData: newData,
@@ -133,7 +131,8 @@ class SmallEditor extends React.PureComponent {
         return <span key={ idx } style={style}>{ text }</span>
     }
 
-    dataChange = editorData => this.updateEditorData(editorData)
+    dataChange = editorData =>
+        this.updateEditorData(this.dataHelper.cleanNodes(editorData))
 
     applyStyle = (property, value) => {
         const { editorData } = this.state
